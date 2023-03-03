@@ -1,0 +1,21 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: lightblue;
+  border-radius: 8px;
+  width: 100%;
+  display: grid;
+  row-gap: 20px;
+}
+
+.title {
+  margin-bottom: 5px;
+}

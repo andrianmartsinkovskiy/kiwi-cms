@@ -1,0 +1,35 @@
+.wrap {
+
+}
+
+.header {
+  background-color: darkslategrey;
+  color: #fff;
+}
+
+.headerWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.name {
+
+}
+
+.logout {
+  font-size: 32px;
+  color: #a50044;
+  cursor: pointer;
+}
+
+.content {
+  padding-top: 30px;
+}
+
+.file {
+  color: darkslategrey;
+  font-size: 22px;
+  cursor: pointer;
+}
