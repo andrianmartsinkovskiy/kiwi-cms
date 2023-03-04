@@ -19,3 +19,14 @@
 .title {
   margin-bottom: 5px;
 }
+
+.cmsMarker {
+  position: fixed;
+  top: 100px;
+  font-size: 105px;
+  text-transform: uppercase;
+  opacity: 0.3;
+  color: grey;
+  left: 50%;
+  transform: translateX(-50%);
+}

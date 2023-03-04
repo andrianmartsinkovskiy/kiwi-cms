@@ -8,6 +8,7 @@ import {AuthContext} from "../../../../context/AuthContext";
 import {loginSchema} from "./login.schema";
 import {toast} from "react-toastify";
 import {Loading} from "../../../../components/other/loading";
+import jwtDecode from "jwt-decode";
 
 
 const LoginForm = () => {
@@ -27,8 +28,9 @@ const LoginForm = () => {
   const loginHandler = async (values) => {
     setIsLoading(true)
     const data = await loginUserRequest({login: values.login, password: values.password})
+    const isAdm = jwtDecode(data.accessToken).role === 'admin'
 
-    if (data) {
+    if (data && isAdm) {
       login(data.accessToken)
     } else {
       notify("Unknown error")
@@ -39,6 +41,10 @@ const LoginForm = () => {
 
   return (
     <div className={c.wrap}>
+      <div className={c.cmsMarker}>
+        cms
+      </div>
+
       <div className={c.form}>
         <div>
           <h4 className={c.title}>Name</h4>

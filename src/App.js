@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {useAuth} from "./hooks/auth.hooks";
+import {AuthContext} from "./context/AuthContext";
+import {BrowserRouter as Router} from "react-router-dom";
+import {useRoutes} from "./routes";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const {token, logout, login, role} = useAuth(AuthContext)
+  const routes = useRoutes(role)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value={{
+      token, logout, login, role
+    }}>
+      <Router>
+        {role && routes}
+      </Router>
+      <ToastContainer
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+      />
+    </AuthContext.Provider>
   );
 }
 
